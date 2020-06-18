@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\andre\Documents\KURSACH_mini
+CMAKE_SOURCE_DIR = C:\Users\andre\Documents\KURSACH
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\andre\Documents\KURSACH_mini\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\andre\Documents\KURSACH\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andre\Documents\KURSACH_mini\cmake-build-debug\CMakeFiles C:\Users\andre\Documents\KURSACH_mini\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andre\Documents\KURSACH\cmake-build-debug\CMakeFiles C:\Users\andre\Documents\KURSACH\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andre\Documents\KURSACH_mini\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andre\Documents\KURSACH\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -110,557 +110,638 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named KURSACH_mini.elf
+# Target rules for targets named KURSACH.elf
 
 # Build rule for target.
-KURSACH_mini.elf: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 KURSACH_mini.elf
-.PHONY : KURSACH_mini.elf
+KURSACH.elf: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 KURSACH.elf
+.PHONY : KURSACH.elf
 
 # fast build rule for target.
-KURSACH_mini.elf/fast:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/build
-.PHONY : KURSACH_mini.elf/fast
+KURSACH.elf/fast:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/build
+.PHONY : KURSACH.elf/fast
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.obj
-
-# target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.obj
-
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.i
-
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.i
-
-# target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.i
-
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.s
-
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.s
-
-# target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c.s
-
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.obj
-
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.s
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.obj: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.obj
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.obj
 
 # target to build an object file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.obj
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.obj
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.obj
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.i: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.i
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.i
 
 # target to preprocess a source file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.i
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.i
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.i
 
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.s: Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.s
 
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.s
 
 # target to generate assembly for a file
-Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.s
-.PHONY : Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.c.s
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c.s
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.obj
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.obj
+
+# target to build an object file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.obj
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.i
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.i
+
+# target to preprocess a source file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.i
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.s
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.s
+
+# target to generate assembly for a file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c.s
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.obj
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.obj
+
+# target to build an object file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.obj
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.i
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.i
+
+# target to preprocess a source file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.i
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.s
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.s
+
+# target to generate assembly for a file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c.s
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.obj
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.obj
+
+# target to build an object file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.obj
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.i
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.i
+
+# target to preprocess a source file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.i
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.s
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.s
+
+# target to generate assembly for a file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c.s
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.obj
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.obj
+
+# target to build an object file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.obj
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.obj
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.i: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.i
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.i
+
+# target to preprocess a source file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.i
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.i
+
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.s: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.s
+
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.s
+
+# target to generate assembly for a file
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.s
+.PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c.s
 
 Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.obj: Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
 
@@ -668,7 +749,7 @@ Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.obj: Middlewares/
 
 # target to build an object file
 Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
 
 Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.i: Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.i
@@ -677,7 +758,7 @@ Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.i: Middlewares/ST
 
 # target to preprocess a source file
 Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.i
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.i
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.i
 
 Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.s: Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.s
@@ -686,7 +767,7 @@ Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.s: Middlewares/ST
 
 # target to generate assembly for a file
 Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.s
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.s
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.s
 
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.obj: Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
@@ -695,7 +776,7 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.obj: Middlewares/ST/S
 
 # target to build an object file
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
 
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.i: Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.i
@@ -704,7 +785,7 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.i: Middlewares/ST/STM
 
 # target to preprocess a source file
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.i
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.i
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.i
 
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.s: Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.s
@@ -713,7 +794,7 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.s: Middlewares/ST/STM
 
 # target to generate assembly for a file
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.s
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.s
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.s
 
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.obj: Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
@@ -722,7 +803,7 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.obj: Middlewares/ST
 
 # target to build an object file
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
 
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.i: Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.i
@@ -731,7 +812,7 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.i: Middlewares/ST/S
 
 # target to preprocess a source file
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.i
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.i
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.i
 
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.s: Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.s
@@ -740,7 +821,7 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.s: Middlewares/ST/S
 
 # target to generate assembly for a file
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.s
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.s
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.s
 
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.obj: Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
@@ -749,7 +830,7 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.obj: Middlewares/ST/
 
 # target to build an object file
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
 
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.i: Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.i
@@ -758,7 +839,7 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.i: Middlewares/ST/ST
 
 # target to preprocess a source file
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.i
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.i
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.i
 
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.s: Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.s
@@ -767,8 +848,35 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.s: Middlewares/ST/ST
 
 # target to generate assembly for a file
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.s
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.s
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.s
+
+Src/gpio.obj: Src/gpio.c.obj
+
+.PHONY : Src/gpio.obj
+
+# target to build an object file
+Src/gpio.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/gpio.c.obj
+.PHONY : Src/gpio.c.obj
+
+Src/gpio.i: Src/gpio.c.i
+
+.PHONY : Src/gpio.i
+
+# target to preprocess a source file
+Src/gpio.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/gpio.c.i
+.PHONY : Src/gpio.c.i
+
+Src/gpio.s: Src/gpio.c.s
+
+.PHONY : Src/gpio.s
+
+# target to generate assembly for a file
+Src/gpio.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/gpio.c.s
+.PHONY : Src/gpio.c.s
 
 Src/main.obj: Src/main.c.obj
 
@@ -776,7 +884,7 @@ Src/main.obj: Src/main.c.obj
 
 # target to build an object file
 Src/main.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/main.c.obj
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/main.c.obj
 .PHONY : Src/main.c.obj
 
 Src/main.i: Src/main.c.i
@@ -785,7 +893,7 @@ Src/main.i: Src/main.c.i
 
 # target to preprocess a source file
 Src/main.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/main.c.i
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/main.c.i
 .PHONY : Src/main.c.i
 
 Src/main.s: Src/main.c.s
@@ -794,89 +902,116 @@ Src/main.s: Src/main.c.s
 
 # target to generate assembly for a file
 Src/main.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/main.c.s
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/main.c.s
 .PHONY : Src/main.c.s
 
-Src/nrf.obj: Src/nrf.c.obj
+Src/rtc.obj: Src/rtc.c.obj
 
-.PHONY : Src/nrf.obj
-
-# target to build an object file
-Src/nrf.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/nrf.c.obj
-.PHONY : Src/nrf.c.obj
-
-Src/nrf.i: Src/nrf.c.i
-
-.PHONY : Src/nrf.i
-
-# target to preprocess a source file
-Src/nrf.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/nrf.c.i
-.PHONY : Src/nrf.c.i
-
-Src/nrf.s: Src/nrf.c.s
-
-.PHONY : Src/nrf.s
-
-# target to generate assembly for a file
-Src/nrf.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/nrf.c.s
-.PHONY : Src/nrf.c.s
-
-Src/stm32f0xx_hal_msp.obj: Src/stm32f0xx_hal_msp.c.obj
-
-.PHONY : Src/stm32f0xx_hal_msp.obj
+.PHONY : Src/rtc.obj
 
 # target to build an object file
-Src/stm32f0xx_hal_msp.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/stm32f0xx_hal_msp.c.obj
-.PHONY : Src/stm32f0xx_hal_msp.c.obj
+Src/rtc.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/rtc.c.obj
+.PHONY : Src/rtc.c.obj
 
-Src/stm32f0xx_hal_msp.i: Src/stm32f0xx_hal_msp.c.i
+Src/rtc.i: Src/rtc.c.i
 
-.PHONY : Src/stm32f0xx_hal_msp.i
+.PHONY : Src/rtc.i
 
 # target to preprocess a source file
-Src/stm32f0xx_hal_msp.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/stm32f0xx_hal_msp.c.i
-.PHONY : Src/stm32f0xx_hal_msp.c.i
+Src/rtc.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/rtc.c.i
+.PHONY : Src/rtc.c.i
 
-Src/stm32f0xx_hal_msp.s: Src/stm32f0xx_hal_msp.c.s
+Src/rtc.s: Src/rtc.c.s
 
-.PHONY : Src/stm32f0xx_hal_msp.s
+.PHONY : Src/rtc.s
 
 # target to generate assembly for a file
-Src/stm32f0xx_hal_msp.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/stm32f0xx_hal_msp.c.s
-.PHONY : Src/stm32f0xx_hal_msp.c.s
+Src/rtc.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/rtc.c.s
+.PHONY : Src/rtc.c.s
 
-Src/stm32f0xx_it.obj: Src/stm32f0xx_it.c.obj
+Src/spi.obj: Src/spi.c.obj
 
-.PHONY : Src/stm32f0xx_it.obj
+.PHONY : Src/spi.obj
 
 # target to build an object file
-Src/stm32f0xx_it.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/stm32f0xx_it.c.obj
-.PHONY : Src/stm32f0xx_it.c.obj
+Src/spi.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/spi.c.obj
+.PHONY : Src/spi.c.obj
 
-Src/stm32f0xx_it.i: Src/stm32f0xx_it.c.i
+Src/spi.i: Src/spi.c.i
 
-.PHONY : Src/stm32f0xx_it.i
+.PHONY : Src/spi.i
 
 # target to preprocess a source file
-Src/stm32f0xx_it.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/stm32f0xx_it.c.i
-.PHONY : Src/stm32f0xx_it.c.i
+Src/spi.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/spi.c.i
+.PHONY : Src/spi.c.i
 
-Src/stm32f0xx_it.s: Src/stm32f0xx_it.c.s
+Src/spi.s: Src/spi.c.s
 
-.PHONY : Src/stm32f0xx_it.s
+.PHONY : Src/spi.s
 
 # target to generate assembly for a file
-Src/stm32f0xx_it.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/stm32f0xx_it.c.s
-.PHONY : Src/stm32f0xx_it.c.s
+Src/spi.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/spi.c.s
+.PHONY : Src/spi.c.s
+
+Src/stm32f1xx_hal_msp.obj: Src/stm32f1xx_hal_msp.c.obj
+
+.PHONY : Src/stm32f1xx_hal_msp.obj
+
+# target to build an object file
+Src/stm32f1xx_hal_msp.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/stm32f1xx_hal_msp.c.obj
+.PHONY : Src/stm32f1xx_hal_msp.c.obj
+
+Src/stm32f1xx_hal_msp.i: Src/stm32f1xx_hal_msp.c.i
+
+.PHONY : Src/stm32f1xx_hal_msp.i
+
+# target to preprocess a source file
+Src/stm32f1xx_hal_msp.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/stm32f1xx_hal_msp.c.i
+.PHONY : Src/stm32f1xx_hal_msp.c.i
+
+Src/stm32f1xx_hal_msp.s: Src/stm32f1xx_hal_msp.c.s
+
+.PHONY : Src/stm32f1xx_hal_msp.s
+
+# target to generate assembly for a file
+Src/stm32f1xx_hal_msp.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/stm32f1xx_hal_msp.c.s
+.PHONY : Src/stm32f1xx_hal_msp.c.s
+
+Src/stm32f1xx_it.obj: Src/stm32f1xx_it.c.obj
+
+.PHONY : Src/stm32f1xx_it.obj
+
+# target to build an object file
+Src/stm32f1xx_it.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/stm32f1xx_it.c.obj
+.PHONY : Src/stm32f1xx_it.c.obj
+
+Src/stm32f1xx_it.i: Src/stm32f1xx_it.c.i
+
+.PHONY : Src/stm32f1xx_it.i
+
+# target to preprocess a source file
+Src/stm32f1xx_it.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/stm32f1xx_it.c.i
+.PHONY : Src/stm32f1xx_it.c.i
+
+Src/stm32f1xx_it.s: Src/stm32f1xx_it.c.s
+
+.PHONY : Src/stm32f1xx_it.s
+
+# target to generate assembly for a file
+Src/stm32f1xx_it.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/stm32f1xx_it.c.s
+.PHONY : Src/stm32f1xx_it.c.s
 
 Src/syscalls.obj: Src/syscalls.c.obj
 
@@ -884,7 +1019,7 @@ Src/syscalls.obj: Src/syscalls.c.obj
 
 # target to build an object file
 Src/syscalls.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/syscalls.c.obj
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/syscalls.c.obj
 .PHONY : Src/syscalls.c.obj
 
 Src/syscalls.i: Src/syscalls.c.i
@@ -893,7 +1028,7 @@ Src/syscalls.i: Src/syscalls.c.i
 
 # target to preprocess a source file
 Src/syscalls.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/syscalls.c.i
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/syscalls.c.i
 .PHONY : Src/syscalls.c.i
 
 Src/syscalls.s: Src/syscalls.c.s
@@ -902,35 +1037,62 @@ Src/syscalls.s: Src/syscalls.c.s
 
 # target to generate assembly for a file
 Src/syscalls.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/syscalls.c.s
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/syscalls.c.s
 .PHONY : Src/syscalls.c.s
 
-Src/system_stm32f0xx.obj: Src/system_stm32f0xx.c.obj
+Src/system_stm32f1xx.obj: Src/system_stm32f1xx.c.obj
 
-.PHONY : Src/system_stm32f0xx.obj
+.PHONY : Src/system_stm32f1xx.obj
 
 # target to build an object file
-Src/system_stm32f0xx.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/system_stm32f0xx.c.obj
-.PHONY : Src/system_stm32f0xx.c.obj
+Src/system_stm32f1xx.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/system_stm32f1xx.c.obj
+.PHONY : Src/system_stm32f1xx.c.obj
 
-Src/system_stm32f0xx.i: Src/system_stm32f0xx.c.i
+Src/system_stm32f1xx.i: Src/system_stm32f1xx.c.i
 
-.PHONY : Src/system_stm32f0xx.i
+.PHONY : Src/system_stm32f1xx.i
 
 # target to preprocess a source file
-Src/system_stm32f0xx.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/system_stm32f0xx.c.i
-.PHONY : Src/system_stm32f0xx.c.i
+Src/system_stm32f1xx.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/system_stm32f1xx.c.i
+.PHONY : Src/system_stm32f1xx.c.i
 
-Src/system_stm32f0xx.s: Src/system_stm32f0xx.c.s
+Src/system_stm32f1xx.s: Src/system_stm32f1xx.c.s
 
-.PHONY : Src/system_stm32f0xx.s
+.PHONY : Src/system_stm32f1xx.s
 
 # target to generate assembly for a file
-Src/system_stm32f0xx.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/system_stm32f0xx.c.s
-.PHONY : Src/system_stm32f0xx.c.s
+Src/system_stm32f1xx.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/system_stm32f1xx.c.s
+.PHONY : Src/system_stm32f1xx.c.s
+
+Src/tim.obj: Src/tim.c.obj
+
+.PHONY : Src/tim.obj
+
+# target to build an object file
+Src/tim.c.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/tim.c.obj
+.PHONY : Src/tim.c.obj
+
+Src/tim.i: Src/tim.c.i
+
+.PHONY : Src/tim.i
+
+# target to preprocess a source file
+Src/tim.c.i:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/tim.c.i
+.PHONY : Src/tim.c.i
+
+Src/tim.s: Src/tim.c.s
+
+.PHONY : Src/tim.s
+
+# target to generate assembly for a file
+Src/tim.c.s:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/tim.c.s
+.PHONY : Src/tim.c.s
 
 Src/usb_device.obj: Src/usb_device.c.obj
 
@@ -938,7 +1100,7 @@ Src/usb_device.obj: Src/usb_device.c.obj
 
 # target to build an object file
 Src/usb_device.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usb_device.c.obj
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usb_device.c.obj
 .PHONY : Src/usb_device.c.obj
 
 Src/usb_device.i: Src/usb_device.c.i
@@ -947,7 +1109,7 @@ Src/usb_device.i: Src/usb_device.c.i
 
 # target to preprocess a source file
 Src/usb_device.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usb_device.c.i
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usb_device.c.i
 .PHONY : Src/usb_device.c.i
 
 Src/usb_device.s: Src/usb_device.c.s
@@ -956,7 +1118,7 @@ Src/usb_device.s: Src/usb_device.c.s
 
 # target to generate assembly for a file
 Src/usb_device.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usb_device.c.s
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usb_device.c.s
 .PHONY : Src/usb_device.c.s
 
 Src/usbd_cdc_if.obj: Src/usbd_cdc_if.c.obj
@@ -965,7 +1127,7 @@ Src/usbd_cdc_if.obj: Src/usbd_cdc_if.c.obj
 
 # target to build an object file
 Src/usbd_cdc_if.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usbd_cdc_if.c.obj
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usbd_cdc_if.c.obj
 .PHONY : Src/usbd_cdc_if.c.obj
 
 Src/usbd_cdc_if.i: Src/usbd_cdc_if.c.i
@@ -974,7 +1136,7 @@ Src/usbd_cdc_if.i: Src/usbd_cdc_if.c.i
 
 # target to preprocess a source file
 Src/usbd_cdc_if.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usbd_cdc_if.c.i
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usbd_cdc_if.c.i
 .PHONY : Src/usbd_cdc_if.c.i
 
 Src/usbd_cdc_if.s: Src/usbd_cdc_if.c.s
@@ -983,7 +1145,7 @@ Src/usbd_cdc_if.s: Src/usbd_cdc_if.c.s
 
 # target to generate assembly for a file
 Src/usbd_cdc_if.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usbd_cdc_if.c.s
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usbd_cdc_if.c.s
 .PHONY : Src/usbd_cdc_if.c.s
 
 Src/usbd_conf.obj: Src/usbd_conf.c.obj
@@ -992,7 +1154,7 @@ Src/usbd_conf.obj: Src/usbd_conf.c.obj
 
 # target to build an object file
 Src/usbd_conf.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usbd_conf.c.obj
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usbd_conf.c.obj
 .PHONY : Src/usbd_conf.c.obj
 
 Src/usbd_conf.i: Src/usbd_conf.c.i
@@ -1001,7 +1163,7 @@ Src/usbd_conf.i: Src/usbd_conf.c.i
 
 # target to preprocess a source file
 Src/usbd_conf.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usbd_conf.c.i
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usbd_conf.c.i
 .PHONY : Src/usbd_conf.c.i
 
 Src/usbd_conf.s: Src/usbd_conf.c.s
@@ -1010,7 +1172,7 @@ Src/usbd_conf.s: Src/usbd_conf.c.s
 
 # target to generate assembly for a file
 Src/usbd_conf.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usbd_conf.c.s
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usbd_conf.c.s
 .PHONY : Src/usbd_conf.c.s
 
 Src/usbd_desc.obj: Src/usbd_desc.c.obj
@@ -1019,7 +1181,7 @@ Src/usbd_desc.obj: Src/usbd_desc.c.obj
 
 # target to build an object file
 Src/usbd_desc.c.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usbd_desc.c.obj
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usbd_desc.c.obj
 .PHONY : Src/usbd_desc.c.obj
 
 Src/usbd_desc.i: Src/usbd_desc.c.i
@@ -1028,7 +1190,7 @@ Src/usbd_desc.i: Src/usbd_desc.c.i
 
 # target to preprocess a source file
 Src/usbd_desc.c.i:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usbd_desc.c.i
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usbd_desc.c.i
 .PHONY : Src/usbd_desc.c.i
 
 Src/usbd_desc.s: Src/usbd_desc.c.s
@@ -1037,17 +1199,17 @@ Src/usbd_desc.s: Src/usbd_desc.c.s
 
 # target to generate assembly for a file
 Src/usbd_desc.c.s:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/Src/usbd_desc.c.s
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/Src/usbd_desc.c.s
 .PHONY : Src/usbd_desc.c.s
 
-startup/startup_stm32f070x6.obj: startup/startup_stm32f070x6.s.obj
+startup/startup_stm32f103xb.obj: startup/startup_stm32f103xb.s.obj
 
-.PHONY : startup/startup_stm32f070x6.obj
+.PHONY : startup/startup_stm32f103xb.obj
 
 # target to build an object file
-startup/startup_stm32f070x6.s.obj:
-	$(MAKE) -f CMakeFiles\KURSACH_mini.elf.dir\build.make CMakeFiles/KURSACH_mini.elf.dir/startup/startup_stm32f070x6.s.obj
-.PHONY : startup/startup_stm32f070x6.s.obj
+startup/startup_stm32f103xb.s.obj:
+	$(MAKE) -f CMakeFiles\KURSACH.elf.dir\build.make CMakeFiles/KURSACH.elf.dir/startup/startup_stm32f103xb.s.obj
+.PHONY : startup/startup_stm32f103xb.s.obj
 
 # Help Target
 help:
@@ -1055,69 +1217,78 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... KURSACH_mini.elf
+	@echo ... KURSACH.elf
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pcd_ex.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.s
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.obj
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.i
-	@echo ... Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usb.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.s
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.obj
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.i
+	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.s
 	@echo ... Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.obj
 	@echo ... Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.i
 	@echo ... Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.s
@@ -1130,24 +1301,33 @@ help:
 	@echo ... Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.obj
 	@echo ... Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.i
 	@echo ... Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.s
+	@echo ... Src/gpio.obj
+	@echo ... Src/gpio.i
+	@echo ... Src/gpio.s
 	@echo ... Src/main.obj
 	@echo ... Src/main.i
 	@echo ... Src/main.s
-	@echo ... Src/nrf.obj
-	@echo ... Src/nrf.i
-	@echo ... Src/nrf.s
-	@echo ... Src/stm32f0xx_hal_msp.obj
-	@echo ... Src/stm32f0xx_hal_msp.i
-	@echo ... Src/stm32f0xx_hal_msp.s
-	@echo ... Src/stm32f0xx_it.obj
-	@echo ... Src/stm32f0xx_it.i
-	@echo ... Src/stm32f0xx_it.s
+	@echo ... Src/rtc.obj
+	@echo ... Src/rtc.i
+	@echo ... Src/rtc.s
+	@echo ... Src/spi.obj
+	@echo ... Src/spi.i
+	@echo ... Src/spi.s
+	@echo ... Src/stm32f1xx_hal_msp.obj
+	@echo ... Src/stm32f1xx_hal_msp.i
+	@echo ... Src/stm32f1xx_hal_msp.s
+	@echo ... Src/stm32f1xx_it.obj
+	@echo ... Src/stm32f1xx_it.i
+	@echo ... Src/stm32f1xx_it.s
 	@echo ... Src/syscalls.obj
 	@echo ... Src/syscalls.i
 	@echo ... Src/syscalls.s
-	@echo ... Src/system_stm32f0xx.obj
-	@echo ... Src/system_stm32f0xx.i
-	@echo ... Src/system_stm32f0xx.s
+	@echo ... Src/system_stm32f1xx.obj
+	@echo ... Src/system_stm32f1xx.i
+	@echo ... Src/system_stm32f1xx.s
+	@echo ... Src/tim.obj
+	@echo ... Src/tim.i
+	@echo ... Src/tim.s
 	@echo ... Src/usb_device.obj
 	@echo ... Src/usb_device.i
 	@echo ... Src/usb_device.s
@@ -1160,7 +1340,7 @@ help:
 	@echo ... Src/usbd_desc.obj
 	@echo ... Src/usbd_desc.i
 	@echo ... Src/usbd_desc.s
-	@echo ... startup/startup_stm32f070x6.obj
+	@echo ... startup/startup_stm32f103xb.obj
 .PHONY : help
 
 

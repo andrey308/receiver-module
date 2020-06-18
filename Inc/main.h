@@ -28,7 +28,17 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f0xx_hal.h"
+#include "stm32f1xx_hal.h"
+#include "stm32f1xx.h"
+#include "stm32f1xx_ll_system.h"
+#include "stm32f1xx_ll_gpio.h"
+#include "stm32f1xx_ll_exti.h"
+#include "stm32f1xx_ll_bus.h"
+#include "stm32f1xx_ll_cortex.h"
+#include "stm32f1xx_ll_rcc.h"
+#include "stm32f1xx_ll_utils.h"
+#include "stm32f1xx_ll_pwr.h"
+#include "stm32f1xx_ll_dma.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -58,13 +68,11 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_Pin GPIO_PIN_0
-#define LED_GPIO_Port GPIOA
-#define IRQ_Pin GPIO_PIN_2
+#define IRQ_Pin LL_GPIO_PIN_2
 #define IRQ_GPIO_Port GPIOA
-#define CE_Pin GPIO_PIN_3
+#define CE_Pin LL_GPIO_PIN_3
 #define CE_GPIO_Port GPIOA
-#define CSN_Pin GPIO_PIN_4
+#define CSN_Pin LL_GPIO_PIN_4
 #define CSN_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 

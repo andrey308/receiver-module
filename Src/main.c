@@ -20,13 +20,16 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "rtc.h"
+#include "spi.h"
+#include "tim.h"
 #include "usb_device.h"
+#include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "usbd_cdc_if.h"
-#include "math.h"
 #include "RF24.h"
+#include "usbd_cdc_if.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,22 +48,655 @@
 
 /* Private variables ---------------------------------------------------------*/
 
-
 /* USER CODE BEGIN PV */
+#define DWT_CONTROL *(volatile unsigned long *)0xE0001000
+#define SCB_DEMCR   *(volatile unsigned long *)0xE000EDFC
+
+#define HIGH 1
+#define LOW  0
+
 extern SPI_HandleTypeDef hspi1;
+
+bool p_variant; /** False for RF24L01 and true for RF24L01P */
+uint8_t payload_size = 0; /**< Fixed size of payloads */
+bool dynamic_payloads_enabled; /**< Whether dynamic payloads are enabled. */
+uint8_t pipe0_reading_address[5] = {0,}; /**< Last address set on pipe 0 for reading. */
+uint8_t addr_width = 0; /**< The address width to use - 3,4 or 5 bytes. */
+uint8_t txDelay = 0;
+
+
+void DWT_Init(void)
+{
+  SCB_DEMCR |= CoreDebug_DEMCR_TRCENA_Msk; // разрешаем использовать счётчик
+  DWT_CONTROL |= DWT_CTRL_CYCCNTENA_Msk;   // запускаем счётчик
+}
+
+void delay_us(uint32_t us) // DelayMicro
+{
+  uint32_t us_count_tic =  us * (SystemCoreClock / 1000000);
+  DWT->CYCCNT = 0U; // обнуляем счётчик
+  while(DWT->CYCCNT < us_count_tic);
+}
+
+void csn(uint8_t level)
+{
+  HAL_GPIO_WritePin(CSN_GPIO_Port, CSN_Pin, level);
+  delay_us(5);
+}
+
+void ce(uint8_t level)
+{
+  HAL_GPIO_WritePin(CE_GPIO_Port, CE_Pin, level);
+}
+
+uint8_t read_register(uint8_t reg)
+{
+  uint8_t addr = R_REGISTER | (REGISTER_MASK & reg);
+  uint8_t dt = 0;
+
+  csn(LOW);
+  HAL_SPI_TransmitReceive(&hspi1, &addr, &dt, 1, 1000);
+  HAL_SPI_TransmitReceive(&hspi1, (uint8_t*)0xff, &dt, 1, 1000);
+  csn(HIGH);
+  return dt;
+}
+
+uint8_t write_registerMy(uint8_t reg, const uint8_t* buf, uint8_t len)
+{
+  uint8_t status = 0;
+  uint8_t addr = W_REGISTER | (REGISTER_MASK & reg);
+
+  csn(LOW);
+  HAL_SPI_TransmitReceive(&hspi1, &addr, &status, 1, 100);
+  HAL_SPI_Transmit(&hspi1, (uint8_t*)buf, len, 100);
+  csn(HIGH);
+  return status;
+}
+
+uint8_t write_register(uint8_t reg, uint8_t value)
+{
+  uint8_t status = 0;
+  uint8_t addr = W_REGISTER | (REGISTER_MASK & reg);
+  csn(LOW);
+  HAL_SPI_TransmitReceive(&hspi1, &addr, &status, 1, 100);
+  HAL_SPI_Transmit(&hspi1, &value, 1, 1000);
+  csn(HIGH);
+  return status;
+}
+
+uint8_t write_payload(const void* buf, uint8_t data_len, const uint8_t writeType)
+{
+  uint8_t status = 0;
+  const uint8_t* current = (const uint8_t*)buf;
+  uint8_t addr = writeType;
+
+  data_len = rf24_min(data_len, payload_size);
+  uint8_t blank_len = dynamic_payloads_enabled ? 0 : payload_size - data_len;
+
+  csn(LOW);
+  HAL_SPI_TransmitReceive(&hspi1, &addr, &status, 1, 100);
+  HAL_SPI_Transmit(&hspi1, (uint8_t*)current, data_len, 100);
+
+  while(blank_len--)
+  {
+    uint8_t empt = 0;
+    HAL_SPI_Transmit(&hspi1, &empt, 1, 100);
+  }
+
+  csn(HIGH);
+  return status;
+}
+
+uint8_t read_payload(void* buf, uint8_t data_len)
+{
+  uint8_t status = 0;
+  uint8_t* current = (uint8_t*)buf;
+
+  if(data_len > payload_size)
+  {
+    data_len = payload_size;
+  }
+
+  uint8_t blank_len = dynamic_payloads_enabled ? 0 : payload_size - data_len;
+
+  uint8_t addr = R_RX_PAYLOAD;
+  csn(LOW);
+  HAL_SPI_Transmit(&hspi1, &addr, 1, 100);
+  HAL_SPI_Receive(&hspi1, (uint8_t*)current, data_len, 100);
+
+  while(blank_len--)
+  {
+    uint8_t empt = 0;
+    HAL_SPI_Receive(&hspi1, &empt, 1, 100);
+  }
+
+  csn(HIGH);
+  return status;
+}
+
+uint8_t flush_rx(void)
+{
+  return spiTrans(FLUSH_RX);
+}
+
+uint8_t flush_tx(void)
+{
+  return spiTrans(FLUSH_TX);
+}
+
+uint8_t spiTrans(uint8_t cmd)
+{
+  uint8_t status = 0;
+  csn(LOW);
+  HAL_SPI_TransmitReceive(&hspi1, &cmd, &status, 1, 1000);
+  csn(HIGH);
+  return status;
+}
+
+uint8_t get_status(void)
+{
+  return spiTrans(NOP);
+}
+
+void setChannel(uint8_t channel)
+{
+  write_register(RF_CH, channel);
+}
+
+uint8_t getChannel()
+{
+  return read_register(RF_CH);
+}
+
+void setPayloadSize(uint8_t size)
+{
+  payload_size = rf24_min(size, 32);
+}
+
+uint8_t getPayloadSize(void)
+{
+  return payload_size;
+}
+
+uint8_t NRF_Init(void)
+{
+  uint8_t setup = 0;
+  p_variant = false;
+  payload_size = 32;
+  dynamic_payloads_enabled = false;
+  addr_width = 5;
+  pipe0_reading_address[0] = 0;
+
+  ce(LOW);
+  csn(HIGH);
+  HAL_Delay(5);
+
+  write_register(NRF_CONFIG, 0x0C); // Reset NRF_CONFIG and enable 16-bit CRC.
+  setRetries(5, 15);
+  setPALevel(RF24_PA_MAX); // Reset value is MAX
+
+  if(setDataRate(RF24_250KBPS)) // check for connected module and if this is a p nRF24l01 variant
+  {
+    p_variant = true;
+  }
+
+  setup = read_register(RF_SETUP);
+  setDataRate(RF24_1MBPS); // Then set the data rate to the slowest (and most reliable) speed supported by all hardware.
+
+  // Disable dynamic payloads, to match dynamic_payloads_enabled setting - Reset value is 0
+  toggle_features();
+  write_register(FEATURE, 0);
+  write_register(DYNPD, 0);
+  dynamic_payloads_enabled = false;
+
+  // Reset current status. Notice reset and flush is the last thing we do
+  write_register(NRF_STATUS, (1 << RX_DR) | (1 << TX_DS) | (1 << MAX_RT));
+  setChannel(76);
+  flush_rx();
+  flush_tx();
+  powerUp(); //Power up by default when begin() is called
+  write_register(NRF_CONFIG, (read_register(NRF_CONFIG)) & ~(1 << PRIM_RX));
+  return (setup != 0 && setup != 0xff);
+}
+
+bool isChipConnected()
+{
+  uint8_t setup = read_register(SETUP_AW);
+
+  if(setup >= 1 && setup <= 3)
+  {
+    return true;
+  }
+
+  return false;
+}
+
+void startListening(void)
+{
+  powerUp();
+
+  write_register(NRF_CONFIG, read_register(NRF_CONFIG) | (1 << PRIM_RX));
+  write_register(NRF_STATUS, (1 << RX_DR) | (1 << TX_DS) | (1 << MAX_RT));
+  ce(HIGH);
+  // Restore the pipe0 adddress, if exists
+  if(pipe0_reading_address[0] > 0)
+  {
+    write_registerMy(RX_ADDR_P0, pipe0_reading_address, addr_width);
+  }
+  else
+  {
+    closeReadingPipe(0);
+  }
+
+  if(read_register(FEATURE) & (1 << EN_ACK_PAY))
+  {
+    flush_tx();
+  }
+}
+
+
+static const uint8_t child_pipe_enable[] = {ERX_P0, ERX_P1, ERX_P2, ERX_P3, ERX_P4, ERX_P5};
+
+void stopListening(void)
+{
+  ce(LOW);
+  delay_us(txDelay);
+
+  if(read_register(FEATURE) & (1 << EN_ACK_PAY))
+  {
+    delay_us(txDelay); //200
+    flush_tx();
+  }
+
+  write_register(NRF_CONFIG, (read_register(NRF_CONFIG)) & ~(1 << PRIM_RX));
+  write_register(EN_RXADDR, read_register(EN_RXADDR) | (1 << child_pipe_enable[0])); // Enable RX on pipe0
+}
+
+void powerDown(void)
+{
+  ce(LOW); // Guarantee CE is low on powerDown
+  write_register(NRF_CONFIG, read_register(NRF_CONFIG) & ~(1 << PWR_UP));
+}
+
+//Power up now. Radio will not power down unless instructed by MCU for config changes etc.
+void powerUp(void)
+{
+  uint8_t cfg = read_register(NRF_CONFIG);
+  // if not powered up then power up and wait for the radio to initialize
+  if(!(cfg & (1 << PWR_UP)))
+  {
+    write_register(NRF_CONFIG, cfg | (1 << PWR_UP));
+    HAL_Delay(5);
+  }
+}
+
+
+//Similar to the previous write, clears the interrupt flags
+bool write(const void* buf, uint8_t len)
+{
+  startFastWrite(buf, len, 1, 1);
+
+  while(!(get_status() & ((1 << TX_DS) | (1 << MAX_RT))))
+  {}
+
+  ce(LOW);
+  uint8_t status = write_register(NRF_STATUS, (1 << RX_DR) | (1 << TX_DS) | (1 << MAX_RT));
+
+  if(status & (1 << MAX_RT))
+  {
+    flush_tx(); //Only going to be 1 packet int the FIFO at a time using this method, so just flush
+    return 0;
+  }
+
+  //TX OK 1 or 0
+  return 1;
+}
+
+void startFastWrite(const void* buf, uint8_t len, const bool multicast, bool startTx)
+{
+  write_payload(buf, len, multicast ? W_TX_PAYLOAD_NO_ACK : W_TX_PAYLOAD);
+
+  if(startTx)
+  {
+    ce(HIGH);
+  }
+}
+
+void maskIRQ(bool tx, bool fail, bool rx)
+{
+  uint8_t config = read_register(NRF_CONFIG);
+  config &= ~(1 << MASK_MAX_RT | 1 << MASK_TX_DS | 1 << MASK_RX_DR); //clear the interrupt flags
+  config |= fail << MASK_MAX_RT | tx << MASK_TX_DS | rx << MASK_RX_DR; // set the specified interrupt flags
+  write_register(NRF_CONFIG, config);
+}
+
+uint8_t getDynamicPayloadSize(void)
+{
+  uint8_t result = 0, addr;
+  csn(LOW);
+  addr = R_RX_PL_WID;
+  HAL_SPI_TransmitReceive(&hspi1, &addr, &result, 1, 1000);
+  HAL_SPI_TransmitReceive(&hspi1, (uint8_t*)0xff, &result, 1, 1000);
+  csn(HIGH);
+
+  if(result > 32)
+  {
+    flush_rx();
+    HAL_Delay(2);
+    return 0;
+  }
+
+  return result;
+}
+
+bool availableMy(void)
+{
+  return available(NULL);
+}
+
+bool available(uint8_t* pipe_num)
+{
+  if(!(read_register(FIFO_STATUS) & (1 << RX_EMPTY)))
+  {
+    if(pipe_num) // If the caller wants the pipe number, include that
+    {
+      uint8_t status = get_status();
+      *pipe_num = (status >> RX_P_NO) & 0x07;
+    }
+
+    return 1;
+  }
+
+  return 0;
+}
+
+void read(void* buf, uint8_t len)
+{
+  read_payload(buf, len);
+  write_register(NRF_STATUS, (1 << RX_DR) | (1 << MAX_RT) | (1 << TX_DS));
+}
+
+
+uint8_t whatHappened()
+{
+  uint8_t status = write_register(NRF_STATUS, (1 << RX_DR) | (1 << TX_DS) | (1 << MAX_RT));
+  /*uint8_t tx_ok = status & (1 << TX_DS);
+  uint8_t tx_fail = status & (1 << MAX_RT);
+  uint8_t rx_ready = status & (1 << RX_DR);*/
+  return status;
+}
+
+void openWritingPipe(uint64_t value)
+{
+  write_registerMy(RX_ADDR_P0, (uint8_t*)&value, addr_width);
+  write_registerMy(TX_ADDR, (uint8_t*)&value, addr_width);
+  write_register(RX_PW_P0, payload_size);
+}
+
+
+static const uint8_t child_pipe[] = {RX_ADDR_P0, RX_ADDR_P1, RX_ADDR_P2, RX_ADDR_P3, RX_ADDR_P4, RX_ADDR_P5};
+
+static const uint8_t child_payload_size[] = {RX_PW_P0, RX_PW_P1, RX_PW_P2, RX_PW_P3, RX_PW_P4, RX_PW_P5};
+
+
+void openReadingPipe(uint8_t child, uint64_t address)
+{
+  if(child == 0)
+  {
+    memcpy(pipe0_reading_address, &address, addr_width);
+  }
+
+  if(child <= 6)
+  {
+    // For pipes 2-5, only write the LSB
+    if(child < 2)
+      write_registerMy(child_pipe[child], (const uint8_t*)&address, addr_width);
+    else
+      write_registerMy(child_pipe[child], (const uint8_t*)&address, 1);
+
+    write_register(child_payload_size[child], payload_size);
+    write_register(EN_RXADDR, read_register(EN_RXADDR) | (1 << child_pipe_enable[child]));
+  }
+}
+
+void setAddressWidth(uint8_t a_width)
+{
+  if(a_width -= 2)
+  {
+    write_register(SETUP_AW, a_width%4);
+    addr_width = (a_width%4) + 2;
+  }
+  else
+  {
+    write_register(SETUP_AW, 0);
+    addr_width = 2;
+  }
+}
+
+void closeReadingPipe(uint8_t pipe)
+{
+  write_register(EN_RXADDR, read_register(EN_RXADDR) & ~(1 << child_pipe_enable[pipe]));
+}
+
+void toggle_features(void)
+{
+  uint8_t addr = ACTIVATE;
+  csn(LOW);
+  HAL_SPI_Transmit(&hspi1, &addr, 1, 1000);
+  HAL_SPI_Transmit(&hspi1, (uint8_t*)0x73, 1, 1000);
+  csn(HIGH);
+}
+
+void enableDynamicPayloads(void)
+{
+  write_register(FEATURE, read_register(FEATURE) | (1 << EN_DPL));
+  write_register(DYNPD, read_register(DYNPD) | (1 << DPL_P5) | (1 << DPL_P4) | (1 << DPL_P3) | (1 << DPL_P2) | (1 << DPL_P1) | (1 << DPL_P0));
+  dynamic_payloads_enabled = true;
+}
+
+void disableDynamicPayloads(void)
+{
+  write_register(FEATURE, 0);
+  write_register(DYNPD, 0);
+  dynamic_payloads_enabled = false;
+}
+
+void enableAckPayload(void)
+{
+  write_register(FEATURE, read_register(FEATURE) | (1 << EN_ACK_PAY) | (1 << EN_DPL));
+  write_register(DYNPD, read_register(DYNPD) | (1 << DPL_P1) | (1 << DPL_P0));
+  dynamic_payloads_enabled = true;
+}
+
+void enableDynamicAck(void)
+{
+  write_register(FEATURE, read_register(FEATURE) | (1 << EN_DYN_ACK));
+}
+
+void writeAckPayload(uint8_t pipe, const void* buf, uint8_t len)
+{
+  const uint8_t* current = (const uint8_t*)buf;
+  uint8_t data_len = rf24_min(len, 32);
+  uint8_t addr = W_ACK_PAYLOAD | (pipe & 0x07);
+  csn(LOW);
+  HAL_SPI_Transmit(&hspi1, &addr, 1, 1000);
+  HAL_SPI_Transmit(&hspi1, (uint8_t*)current, data_len, 1000);
+  csn(HIGH);
+}
+
+bool isAckPayloadAvailable(void)
+{
+  return !(read_register(FIFO_STATUS) & (1 << RX_EMPTY));
+}
+
+bool isPVariant(void)
+{
+  return p_variant;
+}
+
+void setAutoAck(bool enable)
+{
+  if(enable)
+    write_register(EN_AA, 0x3F);
+  else
+    write_register(EN_AA, 0);
+}
+
+void setAutoAckPipe(uint8_t pipe, bool enable)
+{
+  if(pipe <= 6)
+  {
+    uint8_t en_aa = read_register(EN_AA);
+
+    if(enable)
+    {
+      en_aa |= (1 << pipe);
+    }
+    else
+    {
+      en_aa &= ~(1 << pipe);
+    }
+
+    write_register(EN_AA, en_aa);
+  }
+}
+
+void setPALevel(uint8_t level)
+{
+  uint8_t setup = read_register(RF_SETUP) & 0xF8;
+
+  if(level > 3) // If invalid level, go to max PA
+  {
+    level = (RF24_PA_MAX << 1) + 1;		// +1 to support the SI24R1 chip extra bit
+  }
+  else
+  {
+    level = (level << 1) + 1;	 		// Else set level as requested
+  }
+
+  write_register(RF_SETUP, setup |= level);	// Write it to the chip
+}
+
+uint8_t getPALevel(void)
+{
+  return (read_register(RF_SETUP) & ((1 << RF_PWR_LOW) | (1 << RF_PWR_HIGH))) >> 1;
+}
+
+bool setDataRate(rf24_datarate_e speed)
+{
+  bool result = false;
+  uint8_t setup = read_register(RF_SETUP);
+  setup &= ~((1 << RF_DR_LOW) | (1 << RF_DR_HIGH));
+  txDelay = 85;
+
+  if(speed == RF24_250KBPS)
+  {
+    setup |= (1 << RF_DR_LOW);
+    txDelay = 155;
+  }
+  else
+  {
+    if(speed == RF24_2MBPS)
+    {
+      setup |= (1 << RF_DR_HIGH);
+      txDelay = 65;
+    }
+  }
+
+  write_register(RF_SETUP, setup);
+  uint8_t ggg = read_register(RF_SETUP);
+
+  if(ggg == setup)
+  {
+    result = true;
+  }
+
+  return result;
+}
+
+rf24_datarate_e getDataRate(void)
+{
+  rf24_datarate_e result ;
+  uint8_t dr = read_register(RF_SETUP) & ((1 << RF_DR_LOW) | (1 << RF_DR_HIGH));
+
+  // switch uses RAM (evil!)
+  // Order matters in our case below
+  if(dr == (1 << RF_DR_LOW))
+  {
+    result = RF24_250KBPS;
+  }
+  else if(dr == (1 << RF_DR_HIGH))
+  {
+    result = RF24_2MBPS;
+  }
+  else
+  {
+    result = RF24_1MBPS;
+  }
+
+  return result;
+}
+
+void setCRCLength(rf24_crclength_e length)
+{
+  uint8_t config = read_register(NRF_CONFIG) & ~((1 << CRCO) | (1 << EN_CRC));
+
+  if(length == RF24_CRC_DISABLED)
+  {
+    // Do nothing, we turned it off above.
+  }
+  else if(length == RF24_CRC_8)
+  {
+    config |= (1 << EN_CRC);
+  }
+  else
+  {
+    config |= (1 << EN_CRC);
+    config |= (1 << CRCO);
+  }
+
+  write_register(NRF_CONFIG, config);
+}
+
+rf24_crclength_e getCRCLength(void)
+{
+  rf24_crclength_e result = RF24_CRC_DISABLED;
+
+  uint8_t config = read_register(NRF_CONFIG) & ((1 << CRCO) | (1 << EN_CRC));
+  uint8_t AA = read_register(EN_AA);
+
+  if(config & (1 << EN_CRC) || AA)
+  {
+    if(config & (1 << CRCO))
+      result = RF24_CRC_16;
+    else
+      result = RF24_CRC_8;
+  }
+
+  return result;
+}
+
+void disableCRC(void)
+{
+  uint8_t disable = read_register(NRF_CONFIG) & ~(1 << EN_CRC);
+  write_register(NRF_CONFIG, disable);
+}
+
+void setRetries(uint8_t delay, uint8_t count)
+{
+  write_register(SETUP_RETR, (delay&0xf)<<ARD | (count&0xf)<<ARC);
+}
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
-static void MX_SPI1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+char str_rx[21];
 /* USER CODE END 0 */
 
 /**
@@ -70,7 +706,7 @@ static void MX_SPI1_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  char str_tx[21];
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -79,7 +715,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  DWT_Init(); // счётчик для микросекундных пауз
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -91,33 +727,103 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_RTC_Init();
   MX_SPI1_Init();
+  MX_TIM2_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  DWT_Init(); // счётчик для микросекундных пауз
-  uint8_t res1 = isChipConnected();
-  if (res1) {
-    HAL_GPIO_TogglePin(GPIOA, LED_Pin);
-    HAL_Delay(100);
-    HAL_GPIO_TogglePin(GPIOA, LED_Pin);
-    HAL_Delay(100);
-    HAL_GPIO_TogglePin(GPIOA, LED_Pin);
-    HAL_Delay(100);
-    HAL_GPIO_TogglePin(GPIOA, LED_Pin);
-    HAL_Delay(100);
-    HAL_GPIO_TogglePin(GPIOA, LED_Pin);
-    HAL_Delay(100);
+  //const uint64_t pipe0 = 0x787878787878;
+  const uint64_t pipe1 = 0xE8E8F0F0E2LL; // адрес первой трубы
+  //const uint64_t pipe2 = 0xE8E8F0F0A2LL;
+  //const uint64_t pipe3 = 0xE8E8F0F0D1LL;
+  //const uint64_t pipe4 = 0xE8E8F0F0C3LL;
+  //const uint64_t pipe5 = 0xE8E8F0F0E7LL;
+  HAL_Delay(10000);
+
+  char str[64] = {0,};
+  char str1[64] = {0,};
+
+  snprintf(str1, 64, "Enter password: \n");
+  CDC_Transmit_FS((unsigned char*)str1, strlen(str1));
+
+  while (strcmp(str_rx, "password") != 0) {
+    HAL_Delay(10);
   }
+  CDC_Transmit_FS((unsigned char*)"OK!\n", strlen("OK!\n"));
+
+  uint8_t res1 = isChipConnected(); // проверяет подключён ли модуль к SPI
+
+  snprintf(str1, 64, "Connected: %s\n", res1 ? "OK" : "NOT OK");
+  CDC_Transmit_FS((unsigned char*)str1, strlen(str1));
+
+  uint8_t res = NRF_Init(); // инициализация
+
+  snprintf(str, 64, "Init: %s\n", res > 0 && res < 255 ? "OK" : "NOT OK");
+  CDC_Transmit_FS((unsigned char*)str, strlen(str));
+
+  ////////////// SET ////////////////
+  enableAckPayload();
+  setAutoAck(true);
+  setPayloadSize(32);
+  setChannel(19);
+  openReadingPipe(1, pipe1);
+  startListening();
+  ///////////////////////////////////
+
+  maskIRQ(true, true, true); // маскируем прерывания
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    char nrf_data[32] = {0}; // буфер указываем максимального размера
+    static uint8_t remsg = 0;
+    uint8_t pipe_num = 0;
+
+    if(available(&pipe_num)) // проверяем пришло ли что-то
+    {
+      remsg++;
+
+      writeAckPayload(pipe_num, &remsg, sizeof(remsg)); // отправляем полезную нагрузку вместе с подтверждением
+
+      if(pipe_num == 1)
+      {
+        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+//        HAL_Delay(100);
+        uint8_t count = getDynamicPayloadSize(); // смотрим сколько байт прилетело
+//        snprintf(str, 64, "count = %d\n", count);
+//        CDC_Transmit_FS((unsigned char*)str, strlen(str));
+        read(&nrf_data, count); // Читаем данные в массив nrf_data и указываем сколько байт читать
+        if (nrf_data[31] == 'l') {
+          for (int i = 0; i < strlen(nrf_data); i++) {
+            nrf_data[i] = nrf_data[i] - 1;
+          }
+          snprintf(str, 64, "%s", nrf_data);
+          CDC_Transmit_FS((unsigned char*)str, strlen(str));
+        } else {
+          for (int i = 0; i < strlen(nrf_data); i++) {
+            nrf_data[i] = nrf_data[i] - 1;
+          }
+          snprintf(str, 64, "%s\n", nrf_data);
+          CDC_Transmit_FS((unsigned char*)str, strlen(str));
+          HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+        }
+
+      }
+      else
+      {
+        while(availableMy()) // если данные придут от неуказанной трубы, то попадут сюда
+        {
+          read(&nrf_data, sizeof(nrf_data));
+          CDC_Transmit_FS((unsigned char*)"Unknown pipe\n", strlen("Unknown pipe\n"));
+          for (int i = 0; i < 32; i++) nrf_data[i] = 0;
+        }
+      }
+    }
     /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
-    HAL_GPIO_TogglePin(GPIOA, LED_Pin);
-    HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
@@ -134,12 +840,14 @@ void SystemClock_Config(void)
 
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL6;
-  RCC_OscInitStruct.PLL.PREDIV = RCC_PREDIV_DIV1;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -147,87 +855,23 @@ void SystemClock_Config(void)
   /** Initializes the CPU, AHB and APB busses clocks 
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1;
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USB;
-  PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLL;
-
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC|RCC_PERIPHCLK_USB;
+  PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
+  PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLL_DIV1_5;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }
-}
-
-/**
-  * @brief SPI1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_SPI1_Init(void)
-{
-
-  /* USER CODE BEGIN SPI1_Init 0 */
-
-  /* USER CODE END SPI1_Init 0 */
-
-  /* USER CODE BEGIN SPI1_Init 1 */
-
-  /* USER CODE END SPI1_Init 1 */
-  /* SPI1 parameter configuration*/
-  hspi1.Instance = SPI1;
-  hspi1.Init.Mode = SPI_MODE_MASTER;
-  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
-  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi1.Init.CRCPolynomial = 7;
-  hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
-  if (HAL_SPI_Init(&hspi1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN SPI1_Init 2 */
-
-  /* USER CODE END SPI1_Init 2 */
-
-}
-
-/**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_GPIO_Init(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOF_CLK_ENABLE();
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_Pin|IRQ_Pin|CE_Pin|CSN_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : LED_Pin IRQ_Pin CE_Pin CSN_Pin */
-  GPIO_InitStruct.Pin = LED_Pin|IRQ_Pin|CE_Pin|CSN_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
 }
 
 /* USER CODE BEGIN 4 */
@@ -242,12 +886,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-  HAL_GPIO_TogglePin(GPIOA, LED_Pin);
-  HAL_Delay(100);
-  HAL_GPIO_TogglePin(GPIOA, LED_Pin);
-  HAL_Delay(100);
-  HAL_GPIO_TogglePin(GPIOA, LED_Pin);
-  HAL_Delay(100);
+
   /* USER CODE END Error_Handler_Debug */
 }
 

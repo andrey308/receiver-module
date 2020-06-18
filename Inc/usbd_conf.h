@@ -32,8 +32,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "main.h"
-#include "stm32f0xx.h"
-#include "stm32f0xx_hal.h"
+#include "stm32f1xx.h"
+#include "stm32f1xx_hal.h"
 
 /* USER CODE BEGIN INCLUDE */
 
@@ -105,6 +105,11 @@
 /** Alias for delay. */
 #define USBD_Delay          HAL_Delay
 
+/* For footprint reasons and since only one allocation is handled in the HID class
+   driver, the malloc/free is changed into a static allocation method */
+void *USBD_static_malloc(uint32_t size);
+void USBD_static_free(void *p);
+
 /* DEBUG macros */
 
 #if (USBD_DEBUG_LEVEL > 0)
@@ -150,8 +155,7 @@
   */
 
 /* Exported functions -------------------------------------------------------*/
-void *USBD_static_malloc(uint32_t size);
-void USBD_static_free(void *p);
+
 /**
   * @}
   */
